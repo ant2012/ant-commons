@@ -10,7 +10,7 @@ public class App {
     public static App getInstance() {
         return ourInstance;
     }
-    private App() {}
+    public App() {}
 
     private PropertiesManager propertiesManager;
 
