@@ -80,7 +80,7 @@ public class WakeOnLan extends Loggable{
         if (clearMac.length() != 12)
             throw new IllegalArgumentException("Invalid MAC address.");
 
-        String magicString = "000000000000";
+        String magicString = "ffffffffffff";
         for (int i = 0; i < 16; i++) {
             magicString += clearMac;
         }
