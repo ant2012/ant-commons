@@ -66,9 +66,8 @@ public abstract class PropertiesManager extends Loggable {
         propertiesPart.store(getPropertiesOutputStream(file), comments);
     }
 
-    protected OutputStream getPropertiesOutputStream(String fileName) throws FileNotFoundException {
-        return new FileOutputStream(getPropertiesFilenamePrefix() + fileName);
-    }
+    protected abstract OutputStream getPropertiesOutputStream(String fileName) throws FileNotFoundException;
+
 
     public Properties getPropertiesPart(String file){
         return properties.get(file);

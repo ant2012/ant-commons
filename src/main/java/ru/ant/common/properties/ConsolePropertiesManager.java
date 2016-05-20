@@ -1,5 +1,6 @@
 package ru.ant.common.properties;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -18,6 +19,11 @@ public class ConsolePropertiesManager extends PropertiesManager {
     @Override
     protected String getPropertiesFilenamePrefix() {
         return APP_PROPERTIES_FILENAME_PREFIX;
+    }
+
+    @Override
+    protected OutputStream getPropertiesOutputStream(String fileName) throws FileNotFoundException {
+        return new FileOutputStream(getPropertiesFilenamePrefix() + fileName);
     }
 
 }
