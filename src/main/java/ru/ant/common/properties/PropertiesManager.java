@@ -1,6 +1,6 @@
 package ru.ant.common.properties;
 
-import ru.ant.common.Loggable;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -8,8 +8,9 @@ import java.util.*;
 /**
  * Created by ant on 18.05.2016.
  */
-public abstract class PropertiesManager extends Loggable {
+public abstract class PropertiesManager {
 
+    protected Logger log = Logger.getLogger(getClass());
     private HashMap<String, Properties> properties = new HashMap<>();
     private boolean wasLoaded = false;
 
