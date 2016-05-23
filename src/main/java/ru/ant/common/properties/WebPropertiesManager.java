@@ -10,7 +10,7 @@ import java.io.OutputStream;
  * Created by ant on 16.05.2016.
  */
 public class WebPropertiesManager extends PropertiesManager {
-    private final String APP_PROPERTIES_FILENAME = "/WEB-INF/classes/";
+    private final String APP_PROPERTIES_FILENAME_PREFIX = "/WEB-INF/classes/";
     private final ServletContext servletContext;
 
     public WebPropertiesManager(ServletContext servletContext) {
@@ -19,16 +19,16 @@ public class WebPropertiesManager extends PropertiesManager {
 
     @Override
     protected InputStream getPropertiesInputStream(String fileName) {
-        return servletContext.getResourceAsStream(APP_PROPERTIES_FILENAME + fileName);
+        return servletContext.getResourceAsStream(APP_PROPERTIES_FILENAME_PREFIX + fileName);
     }
 
     @Override
     protected String getPropertiesFilenamePrefix() {
-        return APP_PROPERTIES_FILENAME;
+        return APP_PROPERTIES_FILENAME_PREFIX;
     }
 
     @Override
     protected OutputStream getPropertiesOutputStream(String fileName) throws FileNotFoundException {
-        return new FileOutputStream(servletContext.getRealPath(APP_PROPERTIES_FILENAME + fileName));
+        return new FileOutputStream(servletContext.getRealPath(APP_PROPERTIES_FILENAME_PREFIX + fileName));
     }
 }
